@@ -37,16 +37,17 @@ This is a Full Stack Habit Tracker App.
 
 ## Folder Structure
 
-├───assets
-│ ├───css
-│ ├───images
-│ ├───js
-│ └───scss
-├───config
-├───controllers
-├───models
-├───routes
-└───views
+habit tracker <br>
+├───assets <br>
+│ ├───css <br>
+│ ├───images <br>
+│ ├───js <br>
+│ └───scss <br>
+├───config <br>
+├───controllers <br>
+├───models <br>
+├───routes <br>
+└───views <br>
 
 ## Author
 
