@@ -1,0 +1,11 @@
+$background-color: rgb(235, 235, 235);
+
+@mixin flex($justify-content) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}

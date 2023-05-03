@@ -1,0 +1,56 @@
+<% let today=new Date().toLocaleDateString('en-GB').split( '/' ).join( '-' ) %>
+  <div class="today">
+
+    <h2>Today</h2>
+    <p>
+      <%= today %>
+    </p>
+  </div>
+
+
+  <ul>
+
+    <% for (habit of habits) { %>
+      <% let isHabitDone=false; let completion=" " ; habit.daysDone.find(function(a, index){ if (a.date==today) {
+        isHabitDone=true; completion=a.completion; } }) %>
+
+        <li id="one-habit">
+          <div class="left-habit-div">
+            <div id="status-div">
+              <a href="/update-completion/<%= habit._id %>/<%= today %>">
+                <% if(completion=="Done" ){ %>
+                  <i class="fa-solid fa-circle-check"></i>
+                  <% } else if (completion=="Not Done" ){ %>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <% } else { %>
+                      <i class="fa-solid fa-circle-minus"></i>
+                      <% } %>
+              </a>
+            </div>
+
+            <div class="habit-date-div">
+              <p class="habit-content">
+                <%= habit.habit %>
+              </p>
+              <p class="created-date">
+                <%= habit.daysDone[0].date %>
+              </p>
+            </div>
+          </div>
+
+          <div class="starred-delete-div">
+            <a href="/update-starred/<%= habit._id %>">
+              <% if (habit.starred==true) { %>
+                <i class="fa-solid fa-star"></i>
+                <% } else { %>
+                  <i class="fa-regular fa-star"></i>
+                  <% } %>
+            </a>
+            <a href="/delete/<%= habit._id %>">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+          </div>
+
+        </li>
+        <%}%>
+  </ul>

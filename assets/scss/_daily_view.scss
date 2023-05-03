@@ -1,0 +1,78 @@
+.today {
+  @include flex(center);
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: gray;
+  }
+}
+
+ul {
+  width: 60%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+#one-habit {
+  height: 7rem;
+  border-radius: 0.3rem;
+  padding: 0 2rem;
+  background-color: rgb(243, 243, 243);
+  @include flex(space-between);
+  margin-bottom: 0.5rem;
+}
+
+.left-habit-div {
+  @include flex(space-around);
+
+  i {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}
+
+.fa-circle-check {
+  color: green;
+}
+.fa-circle-xmark {
+  color: red;
+}
+.fa-circle-minus {
+  color: #e7c400;
+}
+
+.habit-content {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.created-date {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.starred-delete-div {
+  a {
+    text-decoration: none;
+  }
+  i {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+  }
+}
+
+.fa-star {
+  color: #d3992f;
+  font-size: 1.8rem;
+}
+
+.fa-trash {
+  color: #cf354c;
+}

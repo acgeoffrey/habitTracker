@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div class="create-habit-div hidden">
+  <form action="/create" method="post">
+    <input type="text" name="habit" placeholder="What habit do you want to track?" required>
+    <button type="submit" class="btn">Add new habit</button>
+  </form>
+</div>
+
+<nav id="nav-bar">
+  <h1>Habit Tracker</h1>
+  <p>Welcome User!</p>
+</nav>
+
+<div id="view-icons">
+  <div id="daily-view-icon">
+    <i class="fa-solid fa-calendar-day"></i>
+  </div>
+  <div id="weekly-view-icon">
+    <i class="fa-solid fa-calendar-week"></i>
+  </div>
+</div>
+
+
+
+<div id="daily-view">
+  <%- include('_daily_view') -%>
+</div>
+<div id="weekly-view" class="hidden">
+  <%- include('_weekly_view') -%>
+</div>
+
+<button id="add-habit" class="add-habit btn">
+  <i class="fa-solid fa-plus"></i>
+  New Habit
+</button>
+
+
+<script src="/js/home.js"></script>

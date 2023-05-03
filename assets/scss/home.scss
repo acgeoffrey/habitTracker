@@ -1,0 +1,118 @@
+@import './variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+}
+
+#nav-bar {
+  @include flex(space-between);
+  padding: 3rem;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+#view-icons {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  height: 4rem;
+  width: 18rem;
+  background-color: rgb(233, 233, 233);
+  border-radius: 1rem;
+  @include flex(space-around);
+  margin-bottom: 2rem;
+  i {
+    font-size: 1.5rem;
+    color: rgb(14, 115, 155);
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+#daily-view-icon {
+  background-color: white;
+  height: 87%;
+  width: 48%;
+  border-radius: 1rem;
+  cursor: pointer;
+  @include flex(center);
+}
+
+#weekly-view-icon {
+  @extend #daily-view-icon;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.btn {
+  height: 5rem;
+  width: 15rem;
+  border-radius: 1rem;
+  border: 2px solid rgb(8, 85, 116);
+  background-color: skyblue;
+  @include flex(center);
+  gap: 1rem;
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(2, 49, 68);
+  i {
+    font-size: 2rem;
+  }
+}
+
+.btn:hover {
+  background-color: white;
+  color: rgb(8, 85, 116);
+}
+
+.create-habit-div {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.555);
+  position: absolute;
+  z-index: 1;
+
+  input {
+    position: fixed;
+    bottom: 10%;
+    right: 15%;
+    height: 5rem;
+    width: 30rem;
+    border-radius: 1rem;
+    outline: none;
+    border: 3px solid skyblue;
+    padding: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.6rem;
+  }
+  button {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    z-index: 10;
+  }
+}
+
+@import './daily_view';
+@import './week_view';

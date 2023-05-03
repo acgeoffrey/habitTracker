@@ -1,0 +1,56 @@
+<div class="last-seven-days">
+  <h2>Last 7 Days</h2>
+  <p>
+    <%= date.seven_dates[0][1] %> to
+      <%= date.seven_dates[6][1] %>
+  </p>
+</div>
+
+<ul>
+  <% for (habit of habits) { %>
+
+    <li id="one-habit-week">
+      <div>
+        <p class="habit-name-week">
+          <%= habit.habit %>
+        </p>
+      </div>
+      <div class="habit-details-div">
+        <% for (let i=0; i < date.seven_days.length; i++) { %>
+          <% let isHabitDone=false; let completion=" " ; habit.daysDone.find(function(a, index){ if
+            (a.date==date.seven_dates[i][1]) { isHabitDone=true; completion=a.completion; } }) %>
+            <div class="seven-week-details">
+              <div>
+                <p class="swd-day">
+                  <%= date.seven_days[i].slice(0,3) %>
+                </p>
+              </div>
+              <div>
+                <% if(completion=="Done" ){ %>
+                  <button onclick="location.href='/update-completion/<%= habit._id %>/<%= date.seven_dates[i][1] %>'"
+                    type="button" class="week-btn green">
+                    <%= date.seven_dates[i][1].slice(0,2) %>
+                  </button>
+                  <% } else if (completion=="Not Done" ){ %>
+                    <button onclick="location.href='/update-completion/<%= habit._id %>/<%= date.seven_dates[i][1] %>'"
+                      type="button" class="week-btn red">
+                      <%= date.seven_dates[i][1].slice(0,2) %>
+                    </button>
+                    <% } else { %>
+                      <button
+                        onclick="location.href='/update-completion/<%= habit._id %>/<%= date.seven_dates[i][1] %>'"
+                        type="button" class="week-btn yellow">
+                        <%= date.seven_dates[i][1].slice(0,2) %>
+                      </button>
+                      <% } %>
+
+                        <p class="swd-date">
+                          <%= date.seven_dates[i][1].slice(0,5) %>
+                        </p>
+              </div>
+            </div>
+            <% } %>
+      </div>
+    </li>
+    <% } %>
+</ul>
