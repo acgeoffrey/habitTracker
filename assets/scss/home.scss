@@ -48,7 +48,6 @@ body {
 }
 
 #daily-view-icon {
-  background-color: white;
   height: 87%;
   width: 48%;
   border-radius: 1rem;
@@ -58,7 +57,6 @@ body {
 
 #weekly-view-icon {
   @extend #daily-view-icon;
-  background-color: rgba(255, 255, 255, 0);
 }
 
 .btn {
@@ -112,6 +110,10 @@ body {
     right: 5%;
     z-index: 10;
   }
+}
+
+.noty_layout {
+  font-size: 1.6rem;
 }
 
 @import './daily_view';

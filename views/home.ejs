@@ -1,39 +1,55 @@
 <link rel="stylesheet" href="/css/home.css">
+<% if (view=="daily" ) { %>
+  <style>
+    #daily-view-icon {
+      background-color: white;
+    }
+  </style>
+  <% } else { %>
+    <style>
+      #weekly-view-icon {
+        background-color: white;
+      }
+    </style>
+    <% } %>
 
-<div class="create-habit-div hidden">
-  <form action="/create" method="post">
-    <input type="text" name="habit" placeholder="What habit do you want to track?" required>
-    <button type="submit" class="btn">Add new habit</button>
-  </form>
-</div>
+      <div class="create-habit-div hidden">
+        <form action="/create" method="post">
+          <input type="text" name="habit" placeholder="What habit do you want to track?" required>
+          <button type="submit" class="btn">Add new habit</button>
+        </form>
+      </div>
 
-<nav id="nav-bar">
-  <h1>Habit Tracker</h1>
-  <p>Welcome User!</p>
-</nav>
+      <nav id="nav-bar">
+        <h1>Habit Tracker</h1>
+        <p>Welcome User!</p>
+      </nav>
 
-<div id="view-icons">
-  <div id="daily-view-icon">
-    <i class="fa-solid fa-calendar-day"></i>
-  </div>
-  <div id="weekly-view-icon">
-    <i class="fa-solid fa-calendar-week"></i>
-  </div>
-</div>
+      <div id="view-icons">
+        <a href="/change-view/daily" id="daily-view-icon">
+          <i class="fa-solid fa-calendar-day"></i>
+        </a>
+        <a href="/change-view/weekly" id="weekly-view-icon">
+          <i class="fa-solid fa-calendar-week"></i>
+        </a>
 
-
-
-<div id="daily-view">
-  <%- include('_daily_view') -%>
-</div>
-<div id="weekly-view" class="hidden">
-  <%- include('_weekly_view') -%>
-</div>
-
-<button id="add-habit" class="add-habit btn">
-  <i class="fa-solid fa-plus"></i>
-  New Habit
-</button>
+      </div>
 
 
-<script src="/js/home.js"></script>
+      <% if (view=="daily" ) { %>
+        <div id="daily-view">
+          <%- include('_daily_view') -%>
+        </div>
+        <% } else { %>
+          <div id="weekly-view">
+            <%- include('_weekly_view') -%>
+          </div>
+          <% } %>
+
+            <button id="add-habit" class="add-habit btn">
+              <i class="fa-solid fa-plus"></i>
+              New Habit
+            </button>
+
+
+            <script src="/js/home.js"></script>

@@ -9,5 +9,6 @@ router.post('/create', habitController.create);
 router.get('/update-completion/:id/:date', habitController.updateCompletion);
 router.get('/update-starred/:id', habitController.updateStarred);
 router.get('/delete/:id', habitController.destroy);
+router.get('/change-view/:view', habitController.changeView);
 
 module.exports = router;

@@ -61,6 +61,7 @@
   color: white;
   font-size: 1.6rem;
   font-weight: 600;
+  // -webkit-text-stroke: 0.3px grey;
 }
 
 .swd-date {
@@ -82,4 +83,25 @@
 .green {
   border: 2px solid green;
   background-color: rgb(111, 185, 111);
+}
+
+.legend-outer {
+  margin-top: 5rem;
+  @include flex(center);
+  gap: 2rem;
+}
+
+.legend-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.legend-btn {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
 }

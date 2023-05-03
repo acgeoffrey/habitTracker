@@ -1,4 +1,5 @@
 const Habit = require('../models/habit_tracker');
+const User = require('../models/user');
 
 function daysDateStats() {
   let today = new Date().toLocaleDateString('en-GB').split('/').join('-');
@@ -53,11 +54,13 @@ function daysDateStats() {
 module.exports.home = async (req, res) => {
   try {
     const habit = await Habit.find({});
+    const user = await User.findOne({ email: 'default@gmail.com' });
 
     return res.render('home', {
       title: 'Habit Tracker App',
       habits: habit,
       date: daysDateStats(),
+      view: user.view,
     });
   } catch (err) {
     console.log(err);

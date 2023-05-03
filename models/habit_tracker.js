@@ -4,7 +4,6 @@ const habitTrackerSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      default: 'default@gmail.com',
     },
     habit: {
       type: String,
