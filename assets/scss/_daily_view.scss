@@ -59,6 +59,11 @@ ul {
 }
 
 .starred-delete-div {
+  @include flex(center);
+  p {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
   a {
     text-decoration: none;
   }
@@ -67,6 +72,11 @@ ul {
     margin-left: 1rem;
   }
 }
+
+// .fa-pen-to-square {
+//   color: rgb(57, 178, 226);
+//   font-size: 1.8rem;
+// }
 
 .fa-star {
   color: #d3992f;

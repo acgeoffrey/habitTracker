@@ -86,22 +86,22 @@
 }
 
 .legend-outer {
-  margin-top: 5rem;
   @include flex(center);
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .legend-inner {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 
 .legend-btn {
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
 }

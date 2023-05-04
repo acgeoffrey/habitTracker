@@ -91,10 +91,10 @@ body {
   position: absolute;
   z-index: 1;
 
-  input {
+  #input-text {
     position: fixed;
     bottom: 10%;
-    right: 15%;
+    right: 25%;
     height: 5rem;
     width: 30rem;
     border-radius: 1rem;
@@ -104,6 +104,13 @@ body {
     font-family: 'Nunito', sans-serif;
     font-size: 1.6rem;
   }
+
+  #input-time {
+    @extend #input-text;
+    width: 15rem;
+    right: 15%;
+  }
+
   button {
     position: fixed;
     bottom: 10%;

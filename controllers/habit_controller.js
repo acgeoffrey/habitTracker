@@ -9,7 +9,11 @@ module.exports.create = async (req, res) => {
         email: 'default@gmail.com',
       });
     }
-    console.log('User created', user);
+    let findHabit = await HabitTracker.findOne({ habit: req.body.habit });
+    if (findHabit) {
+      req.flash('error', 'Habit already exists!');
+      return res.redirect('back');
+    }
     let daysDone = [];
     let dateNow = new Date().toLocaleDateString('en-GB').split('/').join('-');
     daysDone.push({ date: dateNow, completion: 'None' });
@@ -18,10 +22,10 @@ module.exports.create = async (req, res) => {
       email: user.email,
       habit: req.body.habit,
       daysDone: daysDone,
+      time: req.body.time,
     });
     req.flash('success', 'New Habit Created. Good Luck!');
 
-    console.log(createHabit);
     return res.redirect('back');
   } catch (err) {
     console.log(err);

@@ -39,16 +39,25 @@
           </div>
 
           <div class="starred-delete-div">
-            <a href="/update-starred/<%= habit._id %>">
-              <% if (habit.starred==true) { %>
-                <i class="fa-solid fa-star"></i>
-                <% } else { %>
-                  <i class="fa-regular fa-star"></i>
-                  <% } %>
-            </a>
-            <a href="/delete/<%= habit._id %>">
-              <i class="fa-solid fa-trash"></i>
-            </a>
+            <!-- <a href="/edit-habit/<%= habit._id%>">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a> -->
+            <p>
+              <%= habit.time %>
+            </p>
+            <div>
+
+              <a href="/update-starred/<%= habit._id %>">
+                <% if (habit.starred==true) { %>
+                  <i class="fa-solid fa-star"></i>
+                  <% } else { %>
+                    <i class="fa-regular fa-star"></i>
+                    <% } %>
+              </a>
+              <a href="/delete/<%= habit._id %>">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </div>
           </div>
 
         </li>

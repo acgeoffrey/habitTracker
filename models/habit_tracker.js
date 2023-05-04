@@ -25,6 +25,9 @@ const habitTrackerSchema = new mongoose.Schema(
     daysFollowed: {
       type: Number,
     },
+    time: {
+      type: String,
+    },
   },
   {
     timestamps: true,
