@@ -36,15 +36,20 @@ module.exports.updateCompletion = async (req, res) => {
   try {
     const habit = await HabitTracker.findById(req.params.id);
     let daysDone = habit.daysDone;
+    let daysFollowed = habit.daysFollowed;
     let isHabitDone = false;
 
     daysDone.find(function (a, index) {
       if (a.date == req.params.date) {
         if (a.completion == 'Done') {
           a.completion = 'Not Done';
+          if (daysFollowed > 0) {
+            daysFollowed -= 1;
+          }
           req.flash('error', 'Habit marked as Not Done!');
         } else {
           a.completion = 'Done';
+          daysFollowed += 1;
           req.flash('success', 'Habit marked as Done!');
         }
         isHabitDone = true;
@@ -52,10 +57,28 @@ module.exports.updateCompletion = async (req, res) => {
     });
     if (!isHabitDone) {
       daysDone.push({ date: req.params.date, completion: 'Done' });
+      daysFollowed += 1;
       req.flash('success', 'Habit marked as Done');
     }
     habit.daysDone = daysDone;
+    habit.daysFollowed = daysFollowed;
     await habit.save();
+
+    // let streak = 0;
+    // for (let i = 0; i < habit.daysDone.length; i++) {
+    //   if (
+    //     habit.daysDone[i].completion == 'Not Done' ||
+    //     habit.daysDone[i].completion == 'None'
+    //   ) {
+    //     break;
+    //   } else if (habit.daysDone[i].completion == 'Done') {
+    //     streak += 1;
+    //   }
+    // }
+
+    // habit.LongestStreak = streak;
+    // await habit.save();
+
     console.log(habit);
     return res.redirect('back');
   } catch (err) {

@@ -240,7 +240,7 @@ ul {
   flex-direction: column;
   background-color: rgb(243, 243, 243);
   margin-bottom: 0.8rem;
-  height: 18rem;
+  height: 22rem;
   padding: 1rem;
   border-radius: 0.5rem;
   border-left: 2px solid rgb(135, 228, 235);
@@ -326,4 +326,16 @@ ul {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
+}
+
+#extra-stats-div {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgb(228, 228, 228);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }

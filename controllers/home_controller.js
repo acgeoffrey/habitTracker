@@ -53,7 +53,7 @@ function daysDateStats() {
 
 module.exports.home = async (req, res) => {
   try {
-    const habit = await Habit.find({}).sort({ time: 1 }).exec();
+    const habit = await Habit.find({}).sort({ starred: -1, time: 1 }).exec();
     const user = await User.findOne({ email: 'default@gmail.com' });
 
     return res.render('home', {

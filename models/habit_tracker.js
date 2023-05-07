@@ -21,9 +21,13 @@ const habitTrackerSchema = new mongoose.Schema(
     },
     LongestStreak: {
       type: Number,
+      default: 0,
+      min: 0,
     },
     daysFollowed: {
       type: Number,
+      default: 0,
+      min: 0,
     },
     time: {
       type: String,

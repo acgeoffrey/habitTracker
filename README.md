@@ -1,4 +1,4 @@
-This is a Full Stack Habit Tracker App.
+Full Stack Habit Tracker App.
 
 ## Table of contents
 
@@ -11,7 +11,7 @@ This is a Full Stack Habit Tracker App.
 
 ### Overview
 
-- This app helps to create and track habits. And it has two views, Daily view and Last 7 Days view to get a better idea on how you are progressing with your habits.
+- This is a Full Stack Habit Tracker app helps to create and track habits. And it has two views, Daily view and Last 7 Days view to get a better idea on how you are progressing with your habits.
 
 ### Screenshot
 
@@ -31,8 +31,8 @@ This is a Full Stack Habit Tracker App.
 
 - Must have NodeJs and MongoDB installed.
 - Install all needed npm dependencies from package.json.
-- "npm start" (or) "npm run dev" if you need to compile sass files
-- Server should run on "http://127.0.0.1:8000/"
+- "npm start" (or) "npm run dev" if you need to compile sass files.
+- Server should run on "http://localhost:8000/".
 
 ## Folder Structure
 
