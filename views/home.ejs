@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="/css/home.css">
-<% if (view=="daily" ) { %>
+<% if (user && user.view=="daily" ) { %>
   <style>
     #daily-view-icon {
       background-color: white;
     }
   </style>
-  <% } else { %>
+  <% } else if (user && user.view=="weekly" ) { %>
     <style>
       #weekly-view-icon {
         background-color: white;
@@ -36,23 +36,20 @@
 
       </div>
 
-      <% if (!view) {%>
-        <% view="daily" %>
-          <%}%>
-            <% if (view=="daily" ) { %>
-              <div id="daily-view">
-                <%- include('_daily_view') -%>
-              </div>
-              <% } else { %>
-                <div id="weekly-view">
-                  <%- include('_weekly_view') -%>
-                </div>
-                <% } %>
+      <% if (user && user.view=="daily" ) { %>
+        <div id="daily-view">
+          <%- include('_daily_view') -%>
+        </div>
+        <% } else if (user && user.view=="weekly" ) { %>
+          <div id="weekly-view">
+            <%- include('_weekly_view') -%>
+          </div>
+          <% } %>
 
-                  <button id="add-habit" class="add-habit btn">
-                    <i class="fa-solid fa-plus"></i>
-                    New Habit
-                  </button>
+            <button id="add-habit" class="add-habit btn">
+              <i class="fa-solid fa-plus"></i>
+              New Habit
+            </button>
 
 
-                  <script src="/js/home.js"></script>
+            <script src="/js/home.js"></script>

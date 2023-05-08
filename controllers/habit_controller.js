@@ -122,6 +122,9 @@ module.exports.destroy = async (req, res) => {
 module.exports.changeView = async (req, res) => {
   try {
     const user = await User.findOne({ email: 'default@gmail.com' });
+    if (!user) {
+      return res.redirect('back');
+    }
     user.view = req.params.view;
     user.save();
     return res.redirect('back');

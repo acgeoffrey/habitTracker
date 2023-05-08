@@ -61,7 +61,7 @@ module.exports.home = async (req, res) => {
       title: 'Habit Tracker App',
       habits: habit,
       date: daysDateStats(),
-      view: user.view,
+      user: user,
     });
   } catch (err) {
     console.log(err);
