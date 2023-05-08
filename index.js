@@ -34,7 +34,7 @@ app.use(
       maxAge: 1000 * 60 * 100,
     },
     store: MongoStore.create({
-      mongoUrl: 'mongodb://127.0.0.1:27017/habit_tracker',
+      mongoUrl: process.env.MONGO_URI,
     }),
   })
 );
