@@ -1,10 +1,12 @@
 const HabitTracker = require('../models/habit_tracker');
 const User = require('../models/user');
 
+/*** Create a new habit ***/
 module.exports.create = async (req, res) => {
   try {
     let user = await User.findOne({ email: 'default@gmail.com' });
     if (!user) {
+      //Creating a new user
       user = await User.create({
         email: 'default@gmail.com',
       });
@@ -15,9 +17,12 @@ module.exports.create = async (req, res) => {
       return res.redirect('back');
     }
     let daysDone = [];
+
+    //Get the date string
     let dateNow = new Date().toLocaleDateString('en-GB').split('/').join('-');
     daysDone.push({ date: dateNow, completion: 'None' });
 
+    //create a new habit
     const createHabit = await HabitTracker.create({
       email: user.email,
       habit: req.body.habit,
@@ -32,6 +37,7 @@ module.exports.create = async (req, res) => {
   }
 };
 
+/*** Update the completion status of a habit ***/
 module.exports.updateCompletion = async (req, res) => {
   try {
     const habit = await HabitTracker.findById(req.params.id);
@@ -55,6 +61,8 @@ module.exports.updateCompletion = async (req, res) => {
         isHabitDone = true;
       }
     });
+
+    //register a new date, thats not in database already
     if (!isHabitDone) {
       daysDone.push({ date: req.params.date, completion: 'Done' });
       daysFollowed += 1;
@@ -86,6 +94,7 @@ module.exports.updateCompletion = async (req, res) => {
   }
 };
 
+/*** Update the favorites status of a habit ***/
 module.exports.updateStarred = async (req, res) => {
   try {
     const habit = await HabitTracker.findById(req.params.id);
@@ -98,6 +107,7 @@ module.exports.updateStarred = async (req, res) => {
   }
 };
 
+/*** Delete a habit ***/
 module.exports.destroy = async (req, res) => {
   try {
     const habit = await HabitTracker.findById(req.params.id);
@@ -108,7 +118,7 @@ module.exports.destroy = async (req, res) => {
     console.log(err);
   }
 };
-
+/*** To change the view ***/
 module.exports.changeView = async (req, res) => {
   try {
     const user = await User.findOne({ email: 'default@gmail.com' });

@@ -39,6 +39,7 @@ app.use(
   })
 );
 
+//Setting flash messages
 app.use(flash());
 app.use(customMiddleware.setFlash);
 

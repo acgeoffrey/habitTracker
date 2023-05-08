@@ -1,6 +1,7 @@
 'use strict';
 console.log('Script is loaded!');
 {
+  //To show and hide the input form div for creating habit
   $('#add-habit').click(function () {
     $('.create-habit-div').removeClass('hidden');
     $('#add-habit').addClass('hidden');
